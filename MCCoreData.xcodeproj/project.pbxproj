@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C38E2C7717AA82800066AD19 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = C38E2C7617AA82800066AD19 /* Network.m */; };
+		C38E2C7A17AA82BA0066AD19 /* People.m in Sources */ = {isa = PBXBuildFile; fileRef = C38E2C7917AA82B90066AD19 /* People.m */; };
 		C39ACBDC17A8FEDF00253062 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39ACBDB17A8FEDF00253062 /* UIKit.framework */; };
 		C39ACBDE17A8FEDF00253062 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39ACBDD17A8FEDF00253062 /* Foundation.framework */; };
 		C39ACBE017A8FEDF00253062 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39ACBDF17A8FEDF00253062 /* CoreGraphics.framework */; };
@@ -17,9 +19,17 @@
 		C39ACC1217A8FFE200253062 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C39ACC0C17A8FFE200253062 /* Default.png */; };
 		C39ACC1317A8FFE200253062 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C39ACC0D17A8FFE200253062 /* Default@2x.png */; };
 		C39ACC1617A9002000253062 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C39ACC1517A9002000253062 /* Main.storyboard */; };
+		C39ACC1B17A9038700253062 /* MCCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = C39ACC1817A9038700253062 /* MCCoreData.m */; };
+		C39ACC1E17A903E200253062 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39ACC1D17A903E200253062 /* CoreData.framework */; };
+		C39ACC2217A904D900253062 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C39ACC2017A904D900253062 /* Model.xcdatamodeld */; };
+		C39ACC2F17A9147000253062 /* MCCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C39ACC2E17A9147000253062 /* MCCoreDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C38E2C7517AA82800066AD19 /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
+		C38E2C7617AA82800066AD19 /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
+		C38E2C7817AA82B90066AD19 /* People.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = People.h; path = ../Libs/MCCoreData/People.h; sourceTree = "<group>"; };
+		C38E2C7917AA82B90066AD19 /* People.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = People.m; path = ../Libs/MCCoreData/People.m; sourceTree = "<group>"; };
 		C39ACBD817A8FEDF00253062 /* MCCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C39ACBDB17A8FEDF00253062 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C39ACBDD17A8FEDF00253062 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -35,6 +45,13 @@
 		C39ACC0C17A8FFE200253062 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C39ACC0D17A8FFE200253062 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C39ACC1517A9002000253062 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C39ACC1717A9038700253062 /* MCCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCCoreData.h; sourceTree = "<group>"; };
+		C39ACC1817A9038700253062 /* MCCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCoreData.m; sourceTree = "<group>"; };
+		C39ACC1D17A903E200253062 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C39ACC2117A904D900253062 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		C39ACC2C17A9135700253062 /* Models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
+		C39ACC2D17A9147000253062 /* MCCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCCoreDataManager.h; sourceTree = "<group>"; };
+		C39ACC2E17A9147000253062 /* MCCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCoreDataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C39ACC1E17A903E200253062 /* CoreData.framework in Frameworks */,
 				C39ACBDC17A8FEDF00253062 /* UIKit.framework in Frameworks */,
 				C39ACBDE17A8FEDF00253062 /* Foundation.framework in Frameworks */,
 				C39ACBE017A8FEDF00253062 /* CoreGraphics.framework in Frameworks */,
@@ -71,6 +89,7 @@
 		C39ACBDA17A8FEDF00253062 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C39ACC1D17A903E200253062 /* CoreData.framework */,
 				C39ACBDB17A8FEDF00253062 /* UIKit.framework */,
 				C39ACBDD17A8FEDF00253062 /* Foundation.framework */,
 				C39ACBDF17A8FEDF00253062 /* CoreGraphics.framework */,
@@ -81,6 +100,7 @@
 		C39ACBE117A8FEDF00253062 /* MCCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				C39ACC1F17A904A500253062 /* Models */,
 				C39ACC1417A9002000253062 /* Storyboards */,
 				C39ACC0117A8FFE100253062 /* Controllers */,
 				C39ACC0417A8FFE100253062 /* Delegate */,
@@ -130,6 +150,10 @@
 		C39ACC0817A8FFE100253062 /* MCCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				C39ACC2D17A9147000253062 /* MCCoreDataManager.h */,
+				C39ACC2E17A9147000253062 /* MCCoreDataManager.m */,
+				C39ACC1717A9038700253062 /* MCCoreData.h */,
+				C39ACC1817A9038700253062 /* MCCoreData.m */,
 			);
 			path = MCCoreData;
 			sourceTree = "<group>";
@@ -150,6 +174,19 @@
 				C39ACC1517A9002000253062 /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C39ACC1F17A904A500253062 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C38E2C7817AA82B90066AD19 /* People.h */,
+				C38E2C7917AA82B90066AD19 /* People.m */,
+				C39ACC2C17A9135700253062 /* Models.h */,
+				C39ACC2017A904D900253062 /* Model.xcdatamodeld */,
+				C38E2C7517AA82800066AD19 /* Network.h */,
+				C38E2C7617AA82800066AD19 /* Network.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +257,11 @@
 				C39ACBE817A8FEDF00253062 /* main.m in Sources */,
 				C39ACC0E17A8FFE200253062 /* ViewController.m in Sources */,
 				C39ACC0F17A8FFE200253062 /* AppDelegate.m in Sources */,
+				C39ACC1B17A9038700253062 /* MCCoreData.m in Sources */,
+				C39ACC2217A904D900253062 /* Model.xcdatamodeld in Sources */,
+				C39ACC2F17A9147000253062 /* MCCoreDataManager.m in Sources */,
+				C38E2C7717AA82800066AD19 /* Network.m in Sources */,
+				C38E2C7A17AA82BA0066AD19 /* People.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,8 +367,22 @@
 				C39ACC0017A8FEE000253062 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C39ACC2017A904D900253062 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C39ACC2117A904D900253062 /* Model.xcdatamodel */,
+			);
+			currentVersion = C39ACC2117A904D900253062 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C39ACBD017A8FEDF00253062 /* Project object */;
 }
