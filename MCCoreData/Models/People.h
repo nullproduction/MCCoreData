@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSNumber * age;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * position;
 @property (nonatomic, retain) NSSet *networks;
 @end
 

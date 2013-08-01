@@ -14,6 +14,7 @@
 
 @dynamic age;
 @dynamic name;
+@dynamic position;
 @dynamic networks;
 
 @end

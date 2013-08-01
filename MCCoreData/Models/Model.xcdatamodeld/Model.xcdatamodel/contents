@@ -7,10 +7,11 @@
     <entity name="People" representedClassName="People" syncable="YES">
         <attribute name="age" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="networks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Network" inverseName="people" inverseEntity="Network" syncable="YES"/>
     </entity>
     <elements>
         <element name="Network" positionX="385" positionY="189" width="128" height="73"/>
-        <element name="People" positionX="198" positionY="162" width="128" height="88"/>
+        <element name="People" positionX="198" positionY="162" width="128" height="103"/>
     </elements>
 </model>

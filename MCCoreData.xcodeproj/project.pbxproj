@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C38E2C7717AA82800066AD19 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = C38E2C7617AA82800066AD19 /* Network.m */; };
-		C38E2C7A17AA82BA0066AD19 /* People.m in Sources */ = {isa = PBXBuildFile; fileRef = C38E2C7917AA82B90066AD19 /* People.m */; };
+		C39A82DC17AAB0CB00F1A976 /* People.m in Sources */ = {isa = PBXBuildFile; fileRef = C39A82DB17AAB0CB00F1A976 /* People.m */; };
 		C39ACBDC17A8FEDF00253062 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39ACBDB17A8FEDF00253062 /* UIKit.framework */; };
 		C39ACBDE17A8FEDF00253062 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39ACBDD17A8FEDF00253062 /* Foundation.framework */; };
 		C39ACBE017A8FEDF00253062 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39ACBDF17A8FEDF00253062 /* CoreGraphics.framework */; };
@@ -28,8 +28,8 @@
 /* Begin PBXFileReference section */
 		C38E2C7517AA82800066AD19 /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
 		C38E2C7617AA82800066AD19 /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
-		C38E2C7817AA82B90066AD19 /* People.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = People.h; path = ../Libs/MCCoreData/People.h; sourceTree = "<group>"; };
-		C38E2C7917AA82B90066AD19 /* People.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = People.m; path = ../Libs/MCCoreData/People.m; sourceTree = "<group>"; };
+		C39A82DA17AAB0CB00F1A976 /* People.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = People.h; sourceTree = "<group>"; };
+		C39A82DB17AAB0CB00F1A976 /* People.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = People.m; sourceTree = "<group>"; };
 		C39ACBD817A8FEDF00253062 /* MCCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C39ACBDB17A8FEDF00253062 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C39ACBDD17A8FEDF00253062 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -179,10 +179,10 @@
 		C39ACC1F17A904A500253062 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C38E2C7817AA82B90066AD19 /* People.h */,
-				C38E2C7917AA82B90066AD19 /* People.m */,
 				C39ACC2C17A9135700253062 /* Models.h */,
 				C39ACC2017A904D900253062 /* Model.xcdatamodeld */,
+				C39A82DA17AAB0CB00F1A976 /* People.h */,
+				C39A82DB17AAB0CB00F1A976 /* People.m */,
 				C38E2C7517AA82800066AD19 /* Network.h */,
 				C38E2C7617AA82800066AD19 /* Network.m */,
 			);
@@ -261,7 +261,7 @@
 				C39ACC2217A904D900253062 /* Model.xcdatamodeld in Sources */,
 				C39ACC2F17A9147000253062 /* MCCoreDataManager.m in Sources */,
 				C38E2C7717AA82800066AD19 /* Network.m in Sources */,
-				C38E2C7A17AA82BA0066AD19 /* People.m in Sources */,
+				C39A82DC17AAB0CB00F1A976 /* People.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

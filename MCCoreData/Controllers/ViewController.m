@@ -10,15 +10,61 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self addEditButton];
+    
     _data = [NSMutableArray array];
-    //[self loadData];
     
     NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) {
 		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-		exit(-1);  // Fail
+		exit(-1);
 	}
 }
+
+
+/*
+ * Add edit button
+ */
+- (void)addEditButton
+{
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+}
+
+
+/*
+ * Editing style
+ */
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.tableView.editing)
+    {
+        return UITableViewCellEditingStyleDelete;
+    }
+    return UITableViewCellEditingStyleNone;
+}
+
+
+/*
+ * Move cell
+ */
+- (void) tableView:(UITableView *)tableView
+moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+       toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    NSInteger sourceRow = sourceIndexPath.row;
+    NSInteger destRow = destinationIndexPath.row;
+    
+    //id object = [_data objectAtIndex:sourceRow];
+    
+    //[self.data removeObjectAtIndex:sourceRow];
+    //[self.data insertObject:object atIndex:destRow];
+    
+    NSLog(@"%ld %ld", (long)sourceRow, (long)destRow);
+    // TODO: MOVE CELL HERE
+}
+
 
 - (NSFetchedResultsController *)fetchedResultsController {
     
@@ -29,7 +75,7 @@
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"People"];
     
     NSSortDescriptor *sort = [[NSSortDescriptor alloc]
-                              initWithKey:@"name" ascending:NO];
+                              initWithKey:@"position" ascending:NO];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
     
     NSFetchedResultsController *theFetchedResultsController =
@@ -83,7 +129,7 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    People *people = [_fetchedResultsController objectAtIndexPath:indexPath];;
+    People *people = [_fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = people.name;
 
 }
@@ -151,4 +197,34 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
 }
+
+/*
+ * Select
+ */
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   People *people = [_fetchedResultsController objectAtIndexPath:indexPath];
+    people.name = @"chnage";
+    [self.managedObjectContext save:nil];
+}
+
+
+/*
+ * Delete row
+ */
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [self.managedObjectContext deleteObject:managedObject];
+        [self.managedObjectContext save:nil];
+        [self.fetchedResultsController performFetch:nil];
+    }
+}
+
+
+
+
 @end
