@@ -6,10 +6,12 @@
 #import "MCCoreData.h"
 #import "Models.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UITableViewController
 <NSFetchedResultsControllerDelegate>
 
 - (IBAction)insert:(id)sender;
-- (IBAction)fetch:(id)sender;
+
+@property (nonatomic, retain) NSMutableArray *data;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 @end
