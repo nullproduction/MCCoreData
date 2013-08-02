@@ -22,7 +22,7 @@
     if ([accountManager linkedAccount]) {
         [self setSyncEnabled:YES];
     }
-
+    
     return YES;
 }
 
@@ -51,15 +51,20 @@
                 DBError *dberror = nil;
                 DBDatastore *datastore = [DBDatastore openDefaultStoreForAccount:account error:&dberror];
                 if (datastore) {
-                    self.syncManager = [[PKSyncManager alloc] initWithManagedObjectContext:self.managedObjectContext datastore:datastore];
-                    [self.syncManager setTablesForEntityNamesWithDictionary:@{@"People": @"peoples2", @"Network": @"networks2"}];
+                    //self.syncManager = [[PKSyncManager alloc] initWithManagedObjectContext:self.managedObjectContext datastore:datastore];
+                    self.syncManager = [[PKSyncManager alloc] initWithManagedObjectContext:[NSManagedObjectContext MR_rootSavingContext] datastore:datastore];
                     
-                    if ([[datastore getTables:nil] count] == 0) {
-                        NSError *error = nil;
+                    [self.syncManager setTablesForEntityNamesWithDictionary:@{@"People": @"peoples", @"Network": @"networks"}];
+                    
+                    NSError *error = nil;
+                    if (![self addMissingSyncAttributeValueToCoreDataObjects:&error]) {
+                        NSLog(@"Error adding missing sync attribute value to Core Data objects: %@", error);
+                    } else if ([[datastore getTables:nil] count] == 0) {
                         if (![self updateDropboxFromCoreData:&error]) {
                             NSLog(@"Error updating Dropbox from Core Data: %@", error);
                         }
                     }
+    
                 } else {
                     NSLog(@"Error opening default datastore: %@", dberror);
                 }
