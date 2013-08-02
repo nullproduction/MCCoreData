@@ -2,7 +2,7 @@
 //  People.h
 //  MCCoreData
 //
-//  Created by Администратор on 8/1/13.
+//  Created by Администратор on 8/2/13.
 //  Copyright (c) 2013 Администратор. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSNumber * age;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * position;
+@property (nonatomic, retain) NSString * syncID;
 @property (nonatomic, retain) NSSet *networks;
 @end
 

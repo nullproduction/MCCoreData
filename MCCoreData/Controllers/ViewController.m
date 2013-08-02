@@ -12,9 +12,7 @@
     [super viewDidLoad];
     
     [self addEditButton];
-    
-    _data = [NSMutableArray array];
-    
+
     NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) {
 		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -22,60 +20,14 @@
 	}
 }
 
-- (void)addEditButton
-{
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-}
-
-
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
-           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (self.tableView.editing)
-    {
-        return UITableViewCellEditingStyleDelete;
-    }
-    return UITableViewCellEditingStyleNone;
-}
-
-
-- (void) tableView:(UITableView *)tableView
-moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
-       toIndexPath:(NSIndexPath *)destinationIndexPath
-{
-    NSInteger sourceRow = sourceIndexPath.row;
-    NSInteger destRow = destinationIndexPath.row;
-    
-    //id object = [_data objectAtIndex:sourceRow];
-    
-    //[self.data removeObjectAtIndex:sourceRow];
-    //[self.data insertObject:object atIndex:destRow];
-    
-    NSLog(@"%ld %ld", (long)sourceRow, (long)destRow);
-    // TODO: MOVE CELL HERE
-}
-
-
 - (NSFetchedResultsController *)fetchedResultsController {
-    
-    if (_fetchedResultsController != nil) {
-        return _fetchedResultsController;
+    if (!_fetchedResultsController) {
+        _fetchedResultsController = [People MR_fetchAllSortedBy:@"name"
+            ascending:YES
+            withPredicate:nil
+            groupBy:nil
+            delegate:self];
     }
-    
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"People"];
-    
-    NSSortDescriptor *sort = [[NSSortDescriptor alloc]
-                              initWithKey:@"position" ascending:NO];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
-    
-    NSFetchedResultsController *theFetchedResultsController =
-    [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                        managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil
-                                                   cacheName:@"Root"];
-    
-    self.fetchedResultsController = theFetchedResultsController;
-    _fetchedResultsController.delegate = self;
-    
     return _fetchedResultsController;
 }
 
@@ -86,15 +38,14 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 - (IBAction)insert:(id)sender
 {
-    // People entity
-    People *people = [NSEntityDescription insertNewObjectForEntityForName:@"People" inManagedObjectContext:self.managedObjectContext];
+    People *people  = [People MR_createEntity];
     people.name = [NSString stringWithFormat:@"%f", [NSDate timeIntervalSinceReferenceDate]];
     
     // Network
     NSMutableSet* networks = [NSMutableSet set];
     for (NSString *url in @[@"http://facebook.com", @"http://vk.com"])
     {
-        Network *network = [NSEntityDescription insertNewObjectForEntityForName:@"Network" inManagedObjectContext:self.managedObjectContext];
+        Network *network  = [Network MR_createEntity];
         network.url = url;
         [networks addObject:network];
     }
@@ -103,7 +54,6 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     [people addNetworks:networks];
     
     // Save
-    //[self.managedObjectContext save:nil];
     [self.managedObjectContext MR_saveOnlySelfAndWait];
 }
 
@@ -123,8 +73,7 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
-    id  sectionInfo =
-    [[_fetchedResultsController sections] objectAtIndex:section];
+    id  sectionInfo = [[_fetchedResultsController sections] objectAtIndex:section];
     return [sectionInfo numberOfObjects];
 }
 
@@ -138,7 +87,8 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 }
 
 
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+{
     
     UITableView *tableView = self.tableView;
     
@@ -185,26 +135,58 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     [self.tableView endUpdates];
 }
 
-- (void)tableView:(UITableView *)tableView
-didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    People *people = [_fetchedResultsController objectAtIndexPath:indexPath];
-    people.name = @"chnage";
-    //[self.managedObjectContext save:nil];
-    [self.managedObjectContext MR_saveOnlySelfAndWait];
-}
-
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [self.managedObjectContext deleteObject:managedObject];
-        //[self.managedObjectContext save:nil];
-         [self.managedObjectContext MR_saveOnlySelfAndWait];
+        People *people = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [people  MR_deleteEntity];
+        [self.managedObjectContext MR_saveOnlySelfAndWait];
         [self.fetchedResultsController performFetch:nil];
     }
 }
+
+
+- (void)addEditButton
+{
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+}
+
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.tableView.editing)
+    {
+        return UITableViewCellEditingStyleDelete;
+    }
+    return UITableViewCellEditingStyleNone;
+}
+
+
+/*
+ - (void)tableView:(UITableView *)tableView
+ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ People *people = [_fetchedResultsController objectAtIndexPath:indexPath];
+ people.name = @"chnage";
+ [self.managedObjectContext MR_saveOnlySelfAndWait];
+ }
+*/
+
+/*
+- (void) tableView:(UITableView *)tableView
+moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+       toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    NSInteger sourceRow = sourceIndexPath.row;
+    NSInteger destRow = destinationIndexPath.row;
+    //id object = [_data objectAtIndex:sourceRow];
+    //[self.data removeObjectAtIndex:sourceRow];
+    //[self.data insertObject:object atIndex:destRow]
+    NSLog(@"%ld %ld", (long)sourceRow, (long)destRow);
+}
+*/
 
 @end

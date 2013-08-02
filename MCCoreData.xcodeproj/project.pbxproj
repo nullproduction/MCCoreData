@@ -33,8 +33,16 @@
 		C318C62817AB90CB00AB4589 /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = C318C60A17AB90CB00AB4589 /* MagicalRecord+Setup.m */; };
 		C318C62917AB90CB00AB4589 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C318C60C17AB90CB00AB4589 /* MagicalRecord+ShorthandSupport.m */; };
 		C318C62A17AB90CB00AB4589 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C318C60E17AB90CB00AB4589 /* MagicalRecord.m */; };
-		C38E2C7717AA82800066AD19 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = C38E2C7617AA82800066AD19 /* Network.m */; };
-		C39A82DC17AAB0CB00F1A976 /* People.m in Sources */ = {isa = PBXBuildFile; fileRef = C39A82DB17AAB0CB00F1A976 /* People.m */; };
+		C33EC92517ABA19000956E79 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33EC92317ABA19000956E79 /* Dropbox.framework */; };
+		C33EC92617ABA19000956E79 /* ParcelKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33EC92417ABA19000956E79 /* ParcelKit.framework */; };
+		C33EC92817ABA8C400956E79 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33EC92717ABA8C400956E79 /* CFNetwork.framework */; };
+		C33EC92A17ABA8D600956E79 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33EC92917ABA8D600956E79 /* SystemConfiguration.framework */; };
+		C33EC92C17ABA8E400956E79 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C33EC92B17ABA8E400956E79 /* libc++.dylib */; };
+		C33EC92E17ABACFD00956E79 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33EC92D17ABACFD00956E79 /* Security.framework */; };
+		C33EC93017ABAD2200956E79 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33EC92F17ABAD2200956E79 /* QuartzCore.framework */; };
+		C33EC93317ABAEE400956E79 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C33EC93217ABAEE300956E79 /* SettingsViewController.m */; };
+		C33EC93C17ABB9E400956E79 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = C33EC93B17ABB9E400956E79 /* Network.m */; };
+		C33EC93F17ABB9F600956E79 /* People.m in Sources */ = {isa = PBXBuildFile; fileRef = C33EC93E17ABB9F500956E79 /* People.m */; };
 		C39ACBDC17A8FEDF00253062 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39ACBDB17A8FEDF00253062 /* UIKit.framework */; };
 		C39ACBDE17A8FEDF00253062 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39ACBDD17A8FEDF00253062 /* Foundation.framework */; };
 		C39ACBE017A8FEDF00253062 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39ACBDF17A8FEDF00253062 /* CoreGraphics.framework */; };
@@ -104,10 +112,19 @@
 		C318C60E17AB90CB00AB4589 /* MagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalRecord.m; sourceTree = "<group>"; };
 		C318C60F17AB90CB00AB4589 /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		C318C61017AB90CB00AB4589 /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
-		C38E2C7517AA82800066AD19 /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
-		C38E2C7617AA82800066AD19 /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
-		C39A82DA17AAB0CB00F1A976 /* People.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = People.h; sourceTree = "<group>"; };
-		C39A82DB17AAB0CB00F1A976 /* People.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = People.m; sourceTree = "<group>"; };
+		C33EC92317ABA19000956E79 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dropbox.framework; path = MCCoreData/Libs/Dropbox.framework; sourceTree = "<group>"; };
+		C33EC92417ABA19000956E79 /* ParcelKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParcelKit.framework; path = MCCoreData/Libs/ParcelKit.framework; sourceTree = "<group>"; };
+		C33EC92717ABA8C400956E79 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		C33EC92917ABA8D600956E79 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C33EC92B17ABA8E400956E79 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		C33EC92D17ABACFD00956E79 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C33EC92F17ABAD2200956E79 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C33EC93117ABAEE300956E79 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		C33EC93217ABAEE300956E79 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		C33EC93A17ABB9E400956E79 /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
+		C33EC93B17ABB9E400956E79 /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
+		C33EC93D17ABB9F500956E79 /* People.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = People.h; sourceTree = "<group>"; };
+		C33EC93E17ABB9F500956E79 /* People.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = People.m; sourceTree = "<group>"; };
 		C39ACBD817A8FEDF00253062 /* MCCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C39ACBDB17A8FEDF00253062 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C39ACBDD17A8FEDF00253062 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -133,10 +150,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C33EC93017ABAD2200956E79 /* QuartzCore.framework in Frameworks */,
+				C33EC92E17ABACFD00956E79 /* Security.framework in Frameworks */,
+				C33EC92C17ABA8E400956E79 /* libc++.dylib in Frameworks */,
+				C33EC92A17ABA8D600956E79 /* SystemConfiguration.framework in Frameworks */,
+				C33EC92817ABA8C400956E79 /* CFNetwork.framework in Frameworks */,
 				C39ACC1E17A903E200253062 /* CoreData.framework in Frameworks */,
 				C39ACBDC17A8FEDF00253062 /* UIKit.framework in Frameworks */,
 				C39ACBDE17A8FEDF00253062 /* Foundation.framework in Frameworks */,
 				C39ACBE017A8FEDF00253062 /* CoreGraphics.framework in Frameworks */,
+				C33EC92517ABA19000956E79 /* Dropbox.framework in Frameworks */,
+				C33EC92617ABA19000956E79 /* ParcelKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +288,13 @@
 		C39ACBDA17A8FEDF00253062 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C33EC92F17ABAD2200956E79 /* QuartzCore.framework */,
+				C33EC92D17ABACFD00956E79 /* Security.framework */,
+				C33EC92B17ABA8E400956E79 /* libc++.dylib */,
+				C33EC92917ABA8D600956E79 /* SystemConfiguration.framework */,
+				C33EC92717ABA8C400956E79 /* CFNetwork.framework */,
+				C33EC92317ABA19000956E79 /* Dropbox.framework */,
+				C33EC92417ABA19000956E79 /* ParcelKit.framework */,
 				C39ACC1D17A903E200253062 /* CoreData.framework */,
 				C39ACBDB17A8FEDF00253062 /* UIKit.framework */,
 				C39ACBDD17A8FEDF00253062 /* Foundation.framework */,
@@ -299,6 +330,8 @@
 		C39ACC0117A8FFE100253062 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C33EC93117ABAEE300956E79 /* SettingsViewController.h */,
+				C33EC93217ABAEE300956E79 /* SettingsViewController.m */,
 				C39ACC0217A8FFE100253062 /* ViewController.h */,
 				C39ACC0317A8FFE100253062 /* ViewController.m */,
 			);
@@ -343,12 +376,12 @@
 		C39ACC1F17A904A500253062 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C33EC93D17ABB9F500956E79 /* People.h */,
+				C33EC93E17ABB9F500956E79 /* People.m */,
 				C39ACC2C17A9135700253062 /* Models.h */,
 				C39ACC2017A904D900253062 /* Model.xcdatamodeld */,
-				C39A82DA17AAB0CB00F1A976 /* People.h */,
-				C39A82DB17AAB0CB00F1A976 /* People.m */,
-				C38E2C7517AA82800066AD19 /* Network.h */,
-				C38E2C7617AA82800066AD19 /* Network.m */,
+				C33EC93A17ABB9E400956E79 /* Network.h */,
+				C33EC93B17ABB9E400956E79 /* Network.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -422,8 +455,6 @@
 				C39ACC0E17A8FFE200253062 /* ViewController.m in Sources */,
 				C39ACC0F17A8FFE200253062 /* AppDelegate.m in Sources */,
 				C39ACC2217A904D900253062 /* Model.xcdatamodeld in Sources */,
-				C38E2C7717AA82800066AD19 /* Network.m in Sources */,
-				C39A82DC17AAB0CB00F1A976 /* People.m in Sources */,
 				C318C61117AB90CB00AB4589 /* MagicalImportFunctions.m in Sources */,
 				C318C61217AB90CB00AB4589 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				C318C61317AB90CB00AB4589 /* NSEntityDescription+MagicalDataImport.m in Sources */,
@@ -450,6 +481,9 @@
 				C318C62817AB90CB00AB4589 /* MagicalRecord+Setup.m in Sources */,
 				C318C62917AB90CB00AB4589 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				C318C62A17AB90CB00AB4589 /* MagicalRecord.m in Sources */,
+				C33EC93317ABAEE400956E79 /* SettingsViewController.m in Sources */,
+				C33EC93C17ABB9E400956E79 /* Network.m in Sources */,
+				C33EC93F17ABB9F600956E79 /* People.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,9 +551,14 @@
 		C39ACBFF17A8FEE000253062 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/MCCoreData/Libs\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCCoreData/MCCoreData-Prefix.pch";
 				INFOPLIST_FILE = "MCCoreData/MCCoreData-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -528,9 +567,14 @@
 		C39ACC0017A8FEE000253062 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/MCCoreData/Libs\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCCoreData/MCCoreData-Prefix.pch";
 				INFOPLIST_FILE = "MCCoreData/MCCoreData-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

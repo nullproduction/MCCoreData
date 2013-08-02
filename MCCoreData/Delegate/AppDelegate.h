@@ -8,4 +8,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (strong, nonatomic) PKSyncManager *syncManager;
+- (void)setSyncEnabled:(BOOL)enabled;
+
 @end

@@ -2,7 +2,7 @@
 //  People.m
 //  MCCoreData
 //
-//  Created by Администратор on 8/1/13.
+//  Created by Администратор on 8/2/13.
 //  Copyright (c) 2013 Администратор. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 @dynamic age;
 @dynamic name;
 @dynamic position;
+@dynamic syncID;
 @dynamic networks;
 
 @end
