@@ -9,18 +9,13 @@
 #define DropboxAppKey @"f5o28idtrkxzb14"
 #define DropboxAppSecret @"a7cm88dd6jpesm6"
 
-/*
- 2013-08-02 14:46:54.698 MCCoreData[2280:907] [ERROR] ERR: DROPBOX_ERROR_INVALID: misc.cpp:69: record ID cannot be null
- 2013-08-02 14:46:54.710 MCCoreData[2280:907] DropboxSync error - Error Domain=dropbox.com Code=2001 "The operation couldn’t be completed. (dropbox.com error 2001.)" UserInfo=0x1f54a090 {desc=misc.cpp:69: record ID cannot be null}
- 2013-08-02 14:46:54.712 MCCoreData[2280:907] [ERROR] ERR: DROPBOX_ERROR_INVALID: misc.cpp:69: record ID cannot be null
- 2013-08-02 14:46:54.714 MCCoreData[2280:907] DropboxSync error - Error Domain=dropbox.com Code=2001 "The operation couldn’t be completed. (dropbox.com error 2001.)" UserInfo=0x20055790 {desc=misc.cpp:69: record ID cannot be null}
- */
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
+    // MagicalRecord
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"Storage.sqlite"];
     
+    // Dropbox
     DBAccountManager *accountManager = [[DBAccountManager alloc] initWithAppKey:DropboxAppKey secret:DropboxAppSecret];
     [DBAccountManager setSharedManager:accountManager];
     
@@ -182,26 +177,6 @@
     [self.managedObjectContext mergeChangesFromContextDidSaveNotification:notification];
 }
 
-
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-
-}
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
