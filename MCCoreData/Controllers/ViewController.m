@@ -22,19 +22,12 @@
 	}
 }
 
-
-/*
- * Add edit button
- */
 - (void)addEditButton
 {
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
 
-/*
- * Editing style
- */
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
            editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -46,9 +39,6 @@
 }
 
 
-/*
- * Move cell
- */
 - (void) tableView:(UITableView *)tableView
 moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
        toIndexPath:(NSIndexPath *)destinationIndexPath
@@ -91,7 +81,7 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 - (NSManagedObjectContext *)managedObjectContext
 {
-    return [MCCoreDataManager sharedManager].managedObjectContext;
+    return [NSManagedObjectContext MR_defaultContext];
 }
 
 - (IBAction)insert:(id)sender
@@ -108,19 +98,16 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         network.url = url;
         [networks addObject:network];
     }
-
+    
     // Add networks
     [people addNetworks:networks];
     
     // Save
-    [self.managedObjectContext save:nil];
+    //[self.managedObjectContext save:nil];
+    [self.managedObjectContext MR_saveOnlySelfAndWait];
 }
 
 
-
-/*
- * Display cell
- */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
@@ -131,7 +118,7 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     People *people = [_fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = people.name;
-
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
@@ -164,7 +151,7 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         case NSFetchedResultsChangeDelete:
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
-         
+            
         case NSFetchedResultsChangeUpdate:
             [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
@@ -198,33 +185,26 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     [self.tableView endUpdates];
 }
 
-/*
- * Select
- */
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   People *people = [_fetchedResultsController objectAtIndexPath:indexPath];
+    People *people = [_fetchedResultsController objectAtIndexPath:indexPath];
     people.name = @"chnage";
-    [self.managedObjectContext save:nil];
+    //[self.managedObjectContext save:nil];
+    [self.managedObjectContext MR_saveOnlySelfAndWait];
 }
 
 
-/*
- * Delete row
- */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
         [self.managedObjectContext deleteObject:managedObject];
-        [self.managedObjectContext save:nil];
+        //[self.managedObjectContext save:nil];
+         [self.managedObjectContext MR_saveOnlySelfAndWait];
         [self.fetchedResultsController performFetch:nil];
     }
 }
-
-
-
 
 @end

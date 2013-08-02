@@ -8,6 +8,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"Storage.sqlite"];
     return YES;
 }
 							
@@ -32,7 +33,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-
+    [MagicalRecord cleanUp];
 }
 
 @end
